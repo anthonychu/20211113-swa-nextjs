@@ -11,9 +11,10 @@ async function main() {
     await app.prepare()
     const port = parseInt(process.env.FUNCTIONS_CUSTOMHANDLER_PORT, 10) || parseInt(process.env.PORT, 10) || 3000
     createServer((req, res) => {
-        const url = req.headers['x-ms-original-url'] || req.url
-        console.log(url)
-        const parsedUrl = parse(url, true)
+        let parsedUrl = parse(url, true)
+        if (parsedUrl.pathname.startsWith('/api/server_function') && req.headers["x-ms-original-url"]) {
+            parsedUrl = parse(req.headers["x-ms-original-url"], true)
+        }
         handle(req, res, parsedUrl)
     }).listen(port, (err) => {
         if (err) throw err
