@@ -4,7 +4,8 @@
       "authLevel": "function",
       "type": "httpTrigger",
       "direction": "in",
-      "name": "req"
+      "name": "req",
+      "route": "{*fullpath}"
     },
     {
       "type": "http",
