@@ -40,6 +40,8 @@ jobs:
           api_location: ".nextjs2swa/api" # Api source code path - optional
           output_location: "" # Built app content directory - optional
           skip_app_build: false # Skip building the app - optional
+        env:
+          DISABLE_PHP_BUILD: "true"
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
