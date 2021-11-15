@@ -41,7 +41,8 @@ jobs:
           output_location: "" # Built app content directory - optional
           skip_app_build: false # Skip building the app - optional
         env:
-          PLATFORM_NAME: "nodejs"
+          DISABLE_PHP_BUILD: "true"
+          VERBOSE: true
           ###### End of Repository/Build Configurations ######
 
   close_pull_request_job:
