@@ -87,22 +87,12 @@ async function main() {
 
     console.log(`Generating staticwebapp.config.json`)
     const staticwebappConfig = {
-        "routes": [
-            {
-                "route": "/",
-                "rewrite": "/api/server_function"
-            },
-            {
-                "route": "/index.html",
-                "rewrite": "/api/server_function"
-            }
-        ],
         "navigationFallback": {
             "rewrite": "/api/server_function"
         }
     }
     fs.writeFileSync(path.resolve(staticDir, 'staticwebapp.config.json'), JSON.stringify(staticwebappConfig, null, 2))
-    fs.writeFileSync(path.resolve(staticDir, 'index.html'), '<html><body><h1>Azure Static Web Apps</h1></body></html>')
+    // fs.writeFileSync(path.resolve(staticDir, 'index.html'), '<html><body><h1>Azure Static Web Apps</h1></body></html>')
 
     console.log(`Creating Azure Functions assets`)
     fs.copySync(path.resolve(__dirname, 'functions_files'), apiDir)
