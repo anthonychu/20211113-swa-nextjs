@@ -25,7 +25,7 @@ jobs:
           cd nextjs2swa
           npm install
           cd ..
-          INPUT_APP_LOCATION=src node nextjs2swa/index.js
+          INPUT_APP_LOCATION=simonaco-ssr-next-app node nextjs2swa/index.js
 
       - name: Build And Deploy
         id: builddeploy
